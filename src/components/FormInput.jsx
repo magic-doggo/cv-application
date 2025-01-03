@@ -76,3 +76,46 @@ export function EducationalExperience () {
         </div>
     )
 }
+
+export function PracticalExperience() {
+    const [companyName, setCompanyName] = useState('');
+    const [positionTitle, setPositionTitle] = useState('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+
+    
+    function handleCompanyNameChange(e) {
+        setCompanyName(e.target.value)
+    }
+    function handlePositionTitleChange(e) {
+        setPositionTitle(e.target.value)
+    }
+    function handleStartDateChange(e) {
+        setStartDate(e.target.value);
+    }
+    function handleEndDateChange(e) {
+        setEndDate(e.target.value);
+    }
+
+    return (
+        <div>
+            <form onSubmit={e => e.preventDefault()}>
+                <label htmlFor="companyName">Company Name</label>
+                <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
+                value ={companyName} onChange={handleCompanyNameChange}/>
+
+                <label htmlFor="positionTitle">Company Name</label>
+                <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
+                value ={positionTitle} onChange={handlePositionTitleChange}/>
+
+                <label htmlFor="startDate">Start Date: </label>
+                <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
+                value={startDate} onChange={handleStartDateChange}/>
+
+                <label htmlFor="endDate">End Date: </label>
+                <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
+                value={endDate} onChange={handleEndDateChange}/>
+            </form>
+        </div>
+    )
+}
