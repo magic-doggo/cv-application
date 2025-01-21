@@ -67,6 +67,15 @@ export function PracticalExperience() {
                     value={description} onChange={handleDescriptionChange}></textarea>
                 <button type="submit">Add Experience</button>
             </form>
+            
+            {experienceEntries.map(experience => (
+                <li key={experience.id}>
+                    <div>{experience.companyName}</div>
+                    <div>{experience.positionTitle}</div>
+                    <div>{experience.startDate} - {experience.endDate}</div>
+                    <div>{experience.description}</div>
+                </li>
+            ))}
         </div>
     )
 }
