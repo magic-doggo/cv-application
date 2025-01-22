@@ -68,14 +68,23 @@ export function PracticalExperience() {
                 <button type="submit">Add Experience</button>
             </form>
             
-            {experienceEntries.map(experience => (
-                <li key={experience.id}>
-                    <div>{experience.companyName}</div>
-                    <div>{experience.positionTitle}</div>
-                    <div>{experience.startDate} - {experience.endDate}</div>
-                    <div>{experience.description}</div>
-                </li>
-            ))}
+            <ul>
+                {experienceEntries.map(experience => (
+                    <li key={experience.id}>
+                        <div>{experience.companyName}</div>
+                        <div>{experience.positionTitle}</div>
+                        <div>{experience.startDate} - {experience.endDate}</div>
+                        <div>{experience.description}</div>
+                        <button onClick={() => {
+                            setExperienceEntries(
+                                experienceEntries.filter(xp =>
+                                    xp.id !== experience.id
+                                )
+                            )
+                        }}>X</button>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
