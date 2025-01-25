@@ -52,3 +52,9 @@ export default function PersonalDetails() {
         </div>
     )
 }
+
+//on submit for practical experience,
+//hide form
+//create a button above the form using CompanyName
+// when button clicked, edit the specific experience entry based on id
+//when submitted, hide form again and modify entry in CV

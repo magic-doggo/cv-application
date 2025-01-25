@@ -37,8 +37,6 @@ export function PracticalExperience() {
             id: (nextId)
         }]);
         setNextId(nextId + 1);
-        console.log(nextId);
-        console.log(experienceEntries);
     }
 
 
@@ -83,6 +81,12 @@ export function PracticalExperience() {
                             )
                         }}>X</button>
                     </li>
+                ))}
+            </ul>
+
+            <ul>
+                {experienceEntries.map(experience => (
+                    <button key={experience.id}>{experience.companyName}</button>
                 ))}
             </ul>
         </div>
