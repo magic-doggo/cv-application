@@ -8,6 +8,7 @@ export function PracticalExperience() {
     const [description, setDescription] = useState('');
     const [nextId, setNextId] = useState(0);
     const [experienceEntries, setExperienceEntries] = useState([]);
+    const [editExistingExperience, setEditExistingExperience] = useState(null);
 
     function handleCompanyNameChange(e) {
         setCompanyName(e.target.value)
@@ -25,24 +26,8 @@ export function PracticalExperience() {
         setDescription(e.target.value);
     }
 
-
-
-    function addExperience() {
-        setExperienceEntries([...experienceEntries, {
-            companyName: companyName,
-            positionTitle: positionTitle,
-            startDate: startDate,
-            endDate: endDate,
-            description: description,
-            id: (nextId)
-        }]);
-        setNextId(nextId + 1);
-    }
-
-
-    return (
-        <div className="add-experience-section">
-            <div>Experience</div>
+    function addExperienceForm() {
+        return (
             <form onSubmit={e => { e.preventDefault(); addExperience() }}>
                 <label htmlFor="companyName">Company Name: </label>
                 <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
@@ -65,7 +50,92 @@ export function PracticalExperience() {
                     value={description} onChange={handleDescriptionChange}></textarea>
                 <button type="submit">Add Experience</button>
             </form>
-            
+        );
+    }
+
+    function editExperienceForm() {
+        return (
+            <form onSubmit={e => { e.preventDefault(); editExperience() }}>
+                <label htmlFor="companyName">Company Name: </label>
+                <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
+                    value={companyName} onChange={handleCompanyNameChange} />
+
+                <label htmlFor="positionTitle">Position Title: </label>
+                <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
+                    value={positionTitle} onChange={handlePositionTitleChange} />
+
+                <label htmlFor="startDate">Start Date: </label>
+                <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
+                    value={startDate} onChange={handleStartDateChange} />
+
+                <label htmlFor="endDate">End Date: </label>
+                <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
+                    value={endDate} onChange={handleEndDateChange} />
+
+                <label htmlFor="description">Description: </label>
+                <textarea type="text" name="description" id="description" placeholder="Description"
+                    value={description} onChange={handleDescriptionChange}></textarea>
+                <button type="submit">Add Experience</button>
+            </form>
+        );
+    }
+
+    function addExperience() {
+        setExperienceEntries([...experienceEntries, {
+            companyName: companyName,
+            positionTitle: positionTitle,
+            startDate: startDate,
+            endDate: endDate,
+            description: description,
+            id: (nextId)
+        }]);
+        setNextId(nextId + 1);
+    }
+
+    //only runs when editExperienceForm() is called
+    function editExperience() {
+        const editedExperiences = experienceEntries.map(
+            experience => {
+                // if (experience.id != xp.id) {
+                //compare to the experience id stored in state, rather than the function param
+                if (experience.id != editExistingExperience.id) {
+                    return experience;
+                    //MAYBE I can get rid of duplicate editExperience/AddExperience
+                    //if the id is not found in editexperience, just run addExperience?
+                }
+                else {
+                    return {
+                        ...experience,
+                        companyName: companyName,
+                        positionTitle: positionTitle,
+                        startDate: startDate,
+                        endDate: endDate,
+                        description: description
+                        //consider splitting this huge Practical experience function
+                    }
+                }
+            }
+        );
+        setExperienceEntries(editedExperiences);
+        setEditExistingExperience(null);
+    };
+
+    function selectEditingExperience(experience) {
+        setEditExistingExperience(experience);
+        setCompanyName(experience.companyName);
+        setPositionTitle(experience.positionTitle);
+        setStartDate(experience.startDate);
+        setEndDate(experience.endDate)
+        setDescription(experience.description)
+    }
+
+
+    return (
+        <div className="add-experience-section">
+            <div>Experience</div>
+            {/* /* if currently editing in setState, show the form that edits the existing experience.
+            else, show the regular form to input a new experience * */}
+            {editExistingExperience ? editExperienceForm(editExistingExperience) : addExperienceForm()}
             <ul>
                 {experienceEntries.map(experience => (
                     <li key={experience.id}>
@@ -86,7 +156,9 @@ export function PracticalExperience() {
 
             <ul>
                 {experienceEntries.map(experience => (
-                    <button key={experience.id}>{experience.companyName}</button>
+                    <button key={experience.id} onClick={() =>
+                        selectEditingExperience(experience) //should not work, need to add function that does something alongside setEditExi...
+                    }>Edit {experience.companyName}</button>
                 ))}
             </ul>
         </div>
