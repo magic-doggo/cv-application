@@ -90,6 +90,7 @@ export function PracticalExperience() {
             id: (nextId)
         }]);
         setNextId(nextId + 1);
+        clearForm();
     }
 
     //only runs when editExperienceForm() is called
@@ -118,6 +119,7 @@ export function PracticalExperience() {
         );
         setExperienceEntries(editedExperiences);
         setEditExistingExperience(null);
+        clearForm();
     };
 
     function selectEditingExperience(experience) {
@@ -127,6 +129,14 @@ export function PracticalExperience() {
         setStartDate(experience.startDate);
         setEndDate(experience.endDate)
         setDescription(experience.description)
+    }
+
+    function clearForm() {
+        setCompanyName('');
+        setPositionTitle('');
+        setStartDate('');
+        setEndDate('')
+        setDescription('')
     }
 
 
@@ -149,7 +159,7 @@ export function PracticalExperience() {
                                     xp.id !== experience.id
                                 )
                             )
-                        }}>X</button>
+                        }}>Delete {experience.companyName}</button>
                     </li>
                 ))}
             </ul>
@@ -157,6 +167,9 @@ export function PracticalExperience() {
             <ul>
                 {experienceEntries.map(experience => (
                     <button key={experience.id} onClick={() =>
+                        //later add css highlight to the button we pressed, to show which experience we are editing
+                        //should check if id of the experience.id key of the button is same as id in state editExistingExperience
+                        //remove highlight if that state is null
                         selectEditingExperience(experience) //should not work, need to add function that does something alongside setEditExi...
                     }>Edit {experience.companyName}</button>
                 ))}
