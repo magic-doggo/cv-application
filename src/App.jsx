@@ -5,6 +5,7 @@ import './App.css'
 import PersonalDetails from './components/PersonalDetails'
 import { PracticalExperience } from './components/PracticalExperience'
 import { Education } from './components/Education'
+import { CVPage } from './components/CVInfo'
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <PersonalDetails></PersonalDetails>
       <Education></Education>
       <PracticalExperience></PracticalExperience>
+      <div>aaaaaaaaaaa</div>
+      <CVPage></CVPage>
     </>
   )
 }

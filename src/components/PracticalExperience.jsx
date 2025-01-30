@@ -53,7 +53,7 @@ export function PracticalExperience() {
         );
     }
 
-    function editExperienceForm() {
+    function editExperienceForm() { //make conditional editExperience in addExperienceForm instead?
         return (
             <form onSubmit={e => { e.preventDefault(); editExperience() }}>
                 <label htmlFor="companyName">Company Name: </label>
@@ -75,7 +75,7 @@ export function PracticalExperience() {
                 <label htmlFor="description">Description: </label>
                 <textarea type="text" name="description" id="description" placeholder="Description"
                     value={description} onChange={handleDescriptionChange}></textarea>
-                <button type="submit">Add Experience</button>
+                <button type="submit">Save changes</button>
             </form>
         );
     }
@@ -102,7 +102,7 @@ export function PracticalExperience() {
                 if (experience.id != editExistingExperience.id) {
                     return experience;
                     //MAYBE I can get rid of duplicate editExperience/AddExperience
-                    //if the id is not found in editexperience, just run addExperience?
+                    //if the id is not found in editExperience, just run addExperience?
                 }
                 else {
                     return {
@@ -135,8 +135,8 @@ export function PracticalExperience() {
         setCompanyName('');
         setPositionTitle('');
         setStartDate('');
-        setEndDate('')
-        setDescription('')
+        setEndDate('');
+        setDescription('');
     }
 
 
