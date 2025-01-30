@@ -7,14 +7,14 @@ export function CVPage() {
 
 
     function addExperience(entry) {
-        setExperienceEntries([...experienceEntries, { entry, id: nextId }]);
+        setExperienceEntries([...experienceEntries, {...entry, id: nextId }]);
         setNextId(nextId + 1);
     }
 
     return (
         <div>
             <PracticalExperienceForm addExperienceEntry={addExperience}></PracticalExperienceForm>
-            {/* CHECk why ul does not populate with experience values */}
+            {console.log(experienceEntries)}
             <ul>
                 {experienceEntries.map(experience => (
                     <li key={experience.id}>

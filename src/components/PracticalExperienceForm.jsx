@@ -65,7 +65,7 @@ export function PracticalExperienceForm({addExperienceEntry}) {
             <label htmlFor="description">Description: </label>
             <textarea type="text" name="description" id="description" placeholder="Description"
                 value={description} onChange={handleDescriptionChange}></textarea>
-            <button type="submit">Save changes</button>
+            <button type="submit">Add Experience</button>
         </form>
     )
 }
