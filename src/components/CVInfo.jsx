@@ -21,14 +21,23 @@ export function CVPage() {
     }
 
     function addPersonalDetails(entry) {
-        setPersonalDetails(entry)
+        setPersonalDetails(entry);
     }
 
     return (
         <div>
+            <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
             <PracticalExperienceForm addExperienceEntry={addExperience}></PracticalExperienceForm>
             <EducationForm addEducationEntry={addEducation}></EducationForm>
-            <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
+
+            <div>
+                <ul>
+                    <li>Full Name: {personalDetails.fullName}</li>
+                    <li>Email address: {personalDetails.email}</li>
+                    <li>Phone Number: {personalDetails.phoneNumber}</li>
+                </ul>
+            </div>
+
             <ul>
                 {experienceEntries.map(experience => (
                     <li key={experience.id}>
@@ -59,18 +68,10 @@ export function CVPage() {
                                     edu.id !== education.id
                                 )
                             )
-                        }}>Delete {education.degree}</button>
+                        }}>Delete {education.school}</button>
                     </li>
                 ))}
             </ul>
-
-            <div>
-                <ul>
-                    <li>Full Name: {personalDetails.fullName}</li>
-                    <li>Email address: {personalDetails.email}</li>
-                    <li>Phone Number: {personalDetails.phoneNumber}</li>
-                </ul>
-            </div>
         </div>
     )
 }

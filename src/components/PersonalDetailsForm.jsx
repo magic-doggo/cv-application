@@ -6,28 +6,32 @@ export default function PersonalDetailsForm({addPersonalDetailsEntry}) {
     const [phoneNumber, setPhoneNumber] = useState('');
 
     function handleNameChange(e) {
+        let currentName = e.target.value;
         setFullName(e.target.value);
+        console.log(currentName)
         addPersonalDetailsEntry({
-            fullName,
+            fullName: currentName,
             email,
             phoneNumber
         })
     }
     function handleEmailChange(e) {
+        let currentEmail = e.target.value;
         setEmail(e.target.value);
         addPersonalDetailsEntry({
             fullName,
-            email,
+            email: currentEmail,
             phoneNumber
         })
     }
 
     function handlePhoneNumberChange(e) {
+        let currentPhoneNumber = e.target.value;
         setPhoneNumber(e.target.value);
         addPersonalDetailsEntry({
             fullName,
             email,
-            phoneNumber
+            phoneNumber: currentPhoneNumber
         })
     }
 
