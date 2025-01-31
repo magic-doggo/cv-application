@@ -1,28 +1,34 @@
 import { useState } from "react";
 import { PracticalExperienceForm } from "./PracticalExperienceForm";
 import { EducationForm } from "./EducationForm";
+import PersonalDetailsForm from "./PersonalDetailsForm";
 
 export function CVPage() {
     const [experienceEntries, setExperienceEntries] = useState([]);
     const [educationEntries, setEducationEntries] = useState([]);
-
+    const [personalDetails, setPersonalDetails] = useState([]);
     const [nextId, setNextId] = useState(0);
 
 
     function addExperience(entry) {
-        setExperienceEntries([...experienceEntries, {...entry, id: nextId }]);
+        setExperienceEntries([...experienceEntries, { ...entry, id: nextId }]);
         setNextId(nextId + 1);
     }
 
     function addEducation(entry) {
-        setEducationEntries([...educationEntries, {...entry, id: nextId}]);
+        setEducationEntries([...educationEntries, { ...entry, id: nextId }]);
         setNextId(nextId + 1);
+    }
+
+    function addPersonalDetails(entry) {
+        setPersonalDetails(entry)
     }
 
     return (
         <div>
             <PracticalExperienceForm addExperienceEntry={addExperience}></PracticalExperienceForm>
             <EducationForm addEducationEntry={addEducation}></EducationForm>
+            <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
             <ul>
                 {experienceEntries.map(experience => (
                     <li key={experience.id}>
@@ -57,6 +63,14 @@ export function CVPage() {
                     </li>
                 ))}
             </ul>
+
+            <div>
+                <ul>
+                    <li>Full Name: {personalDetails.fullName}</li>
+                    <li>Email address: {personalDetails.email}</li>
+                    <li>Phone Number: {personalDetails.phoneNumber}</li>
+                </ul>
+            </div>
         </div>
     )
 }
