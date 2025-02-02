@@ -8,7 +8,6 @@ export default function PersonalDetailsForm({addPersonalDetailsEntry}) {
     function handleNameChange(e) {
         let currentName = e.target.value;
         setFullName(e.target.value);
-        console.log(currentName)
         addPersonalDetailsEntry({
             fullName: currentName,
             email,

@@ -1,12 +1,13 @@
 import { useState } from "react";
-// import { CVPage } from "./CVInfo";
 
-export function PracticalExperienceForm({addExperienceEntry}) {
-    const [companyName, setCompanyName] = useState('');
-    const [positionTitle, setPositionTitle] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
-    const [description, setDescription] = useState('');
+//maybe add additional true/false parameter? If true, submits new entry
+//if false, edits existing entry?
+export function PracticalExperienceForm({ addExperienceEntry, editExperience, isCurrentlyEditing, updateExperienceEntry }) {
+    const [companyName, setCompanyName] = useState(editExperience ? editExperience.companyName : '');
+    const [positionTitle, setPositionTitle] = useState(editExperience ? editExperience.positionTitle : '');
+    const [startDate, setStartDate] = useState(editExperience ? editExperience.startDate : '');
+    const [endDate, setEndDate] = useState(editExperience ? editExperience.endDate : '');
+    const [description, setDescription] = useState(editExperience ? editExperience.description : '');
 
     function handleCompanyNameChange(e) {
         setCompanyName(e.target.value)
@@ -33,15 +34,25 @@ export function PracticalExperienceForm({addExperienceEntry}) {
     }
 
     function onSubmit(e) {
-        clearForm();
         e.preventDefault();
-        addExperienceEntry({
+        if (isCurrentlyEditing) {
+            updateExperienceEntry({
+                ...editExperience,
+                companyName,
+                positionTitle,
+                startDate,
+                endDate,
+                description
+            })
+        }
+        else addExperienceEntry({
             companyName,
             positionTitle,
             startDate,
             endDate,
             description
         });
+        clearForm();
     }
 
     return (
@@ -65,7 +76,7 @@ export function PracticalExperienceForm({addExperienceEntry}) {
             <label htmlFor="description">Description: </label>
             <textarea type="text" name="description" id="description" placeholder="Description"
                 value={description} onChange={handleDescriptionChange}></textarea>
-            <button type="submit">Add Experience</button>
+            <button type="submit">{isCurrentlyEditing ? 'Submit changes' : 'Add Experience'}</button>
         </form>
     )
 }

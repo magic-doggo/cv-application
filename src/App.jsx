@@ -2,9 +2,9 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import PersonalDetails from './components/PersonalDetails'
-import { PracticalExperience } from './components/PracticalExperience'
-import { Education } from './components/Education'
+// import PersonalDetails from './components/PersonalDetails'
+// import { PracticalExperience } from './components/PracticalExperience'
+// import { Education } from './components/Education'
 import { CVPage } from './components/CVInfo'
 
 function App() {
