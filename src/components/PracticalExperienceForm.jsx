@@ -44,6 +44,7 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
                 endDate,
                 description
             })
+            {console.log(editExperience, " asd ", editExperience.companyName)}
         }
         else addExperienceEntry({
             companyName,
@@ -55,12 +56,17 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
         clearForm();
     }
 
+    // function storeValues() {
+    //     let tempCompanyName = editExperience.companyName;
+    //     return tempCompanyName;
+    // }
+
     return (
         <form onSubmit={e => onSubmit(e)}>
             <label htmlFor="companyName">Company Name: </label>
             <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
+                // value={editExperience ? storeValues(): companyName} onChange={handleCompanyNameChange} />
                 value={companyName} onChange={handleCompanyNameChange} />
-
             <label htmlFor="positionTitle">Position Title: </label>
             <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
                 value={positionTitle} onChange={handlePositionTitleChange} />

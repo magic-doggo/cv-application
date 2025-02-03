@@ -30,7 +30,8 @@ export function CVPage() {
 
     function selectEditingExperience(experience) {
         setEditExistingExperience(experience);
-
+        // console.log(experience)
+        // console.log(editExistingExperience)
     }
 
     function updateExperienceEntry(updatedEntry) {
@@ -64,6 +65,7 @@ export function CVPage() {
             </div>
 
             <div className="cv-paper">
+                <h1>CV</h1>
                 <div>
                     <ul>
                         <li>Full Name: {personalDetails.fullName}</li>
@@ -74,19 +76,19 @@ export function CVPage() {
                 <ul>
                     {experienceEntries.map(experience => (
                         <li key={experience.id}>
-                            <div>{experience.companyName}</div>
-                            <div>{experience.positionTitle}</div>
-                            <div>{experience.startDate} - {experience.endDate}</div>
-                            <div>{experience.description}</div>
+                            <div>Company Name: {experience.companyName}</div>
+                            <div>Position Title: {experience.positionTitle}</div>
+                            <div>Work period: {experience.startDate} - {experience.endDate}</div>
+                            <div>Description: {experience.description}</div>
                         </li>
                     ))}
                 </ul>
                 <ul>
                     {educationEntries.map(education => (
                         <li key={education.id}>
-                            <div>{education.school}</div>
-                            <div>{education.degree}</div>
-                            <div>{education.startDate} - {education.endDate}</div>
+                            <div>School: {education.school}</div>
+                            <div>Degree: {education.degree}</div>
+                            <div>Study period: {education.startDate} - {education.endDate}</div>
                             <button onClick={() => {
                                 setEducationEntries(
                                     educationEntries.filter(edu =>
