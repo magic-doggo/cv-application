@@ -44,7 +44,7 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
                 endDate,
                 description
             })
-            {console.log(editExperience, " asd ", editExperience.companyName)}
+            { console.log(editExperience, " asd ", editExperience.companyName) }
         }
         else addExperienceEntry({
             companyName,
@@ -56,32 +56,34 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
         clearForm();
     }
 
-    // function storeValues() {
-    //     let tempCompanyName = editExperience.companyName;
-    //     return tempCompanyName;
-    // }
-
     return (
         <form onSubmit={e => onSubmit(e)}>
             <label htmlFor="companyName">Company Name: </label>
             <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
-                // value={editExperience ? storeValues(): companyName} onChange={handleCompanyNameChange} />
-                value={companyName} onChange={handleCompanyNameChange} />
+            onChange={handleCompanyNameChange}
+            value={editExperience ? (companyName == '' ? editExperience.companyName : companyName) : companyName} 
+            />
+
             <label htmlFor="positionTitle">Position Title: </label>
             <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
-                value={positionTitle} onChange={handlePositionTitleChange} />
+            onChange={handlePositionTitleChange}
+            value={editExperience ? (positionTitle == '' ? editExperience.positionTitle : positionTitle) : positionTitle}  />
 
             <label htmlFor="startDate">Start Date: </label>
             <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
-                value={startDate} onChange={handleStartDateChange} />
+            onChange={handleStartDateChange} 
+            value={editExperience ? (startDate == '' ? editExperience.startDate : startDate) : startDate} />
 
             <label htmlFor="endDate">End Date: </label>
             <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
-                value={endDate} onChange={handleEndDateChange} />
+            onChange={handleEndDateChange}
+            value={editExperience ? (endDate == '' ? editExperience.endDate : endDate) : endDate} />
 
             <label htmlFor="description">Description: </label>
             <textarea type="text" name="description" id="description" placeholder="Description"
-                value={description} onChange={handleDescriptionChange}></textarea>
+            onChange={handleDescriptionChange}
+            value={editExperience ? (description == '' ? editExperience.description : description) : description}>
+            </textarea>
             <button type="submit">{isCurrentlyEditing ? 'Submit changes' : 'Add Experience'}</button>
         </form>
     )
