@@ -38,23 +38,23 @@ export function EducationForm({ addEducationEntry }) {
     }
 
     return (
-        <form onSubmit={e => onSubmit(e)}>
-            <label htmlFor="school">School name: </label>
-            <input type="text" name="school" id="school" placeholder="Enter school / university"
-                value={school} onChange={handleSchoolChange} />
-
-            <label htmlFor="degree">Degree: </label>
-            <input type="text" name="degree" id="degree" placeholder="Enter degree / field of study"
-                value={degree} onChange={handleDegreeChange} />
-
-            <label htmlFor="startDate">Start Date: </label>
-            <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
-                value={startDate} onChange={handleStartDateChange} />
-
-            <label htmlFor="endDate">End Date: </label>
-            <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
-                value={endDate} onChange={handleEndDateChange} />
-            <button type="submit">Add Education</button>
-        </form>
+        <div className="add-education-section">
+            <div>Education: </div>
+            <form onSubmit={e => onSubmit(e)}>
+                <label htmlFor="school">School name: </label>
+                <input type="text" name="school" id="school" placeholder="Enter school / university"
+                    value={school} onChange={handleSchoolChange} />
+                <label htmlFor="degree">Degree: </label>
+                <input type="text" name="degree" id="degree" placeholder="Enter degree / field of study"
+                    value={degree} onChange={handleDegreeChange} />
+                <label htmlFor="startDate">Start Date: </label>
+                <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
+                    value={startDate} onChange={handleStartDateChange} />
+                <label htmlFor="endDate">End Date: </label>
+                <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
+                    value={endDate} onChange={handleEndDateChange} />
+                <button type="submit">Add Education</button>
+            </form>
+        </div>
     )
 }

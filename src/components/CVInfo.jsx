@@ -50,9 +50,8 @@ export function CVPage() {
         setEditExistingEducation(null);
     }
 
-    //
     return (
-        <div>
+        <div className="cv-info">
             <div className="forms-container">
                 <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
                 

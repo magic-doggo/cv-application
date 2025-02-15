@@ -44,34 +44,33 @@ export function PracticalExperienceForm({ addExperienceEntry }) {
     }
 
     return (
-        <form onSubmit={e => onSubmit(e)}>
-            <label htmlFor="companyName">Company Name: </label>
-            <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
-                onChange={handleCompanyNameChange}
-                value={companyName}
-            />
-
-            <label htmlFor="positionTitle">Position Title: </label>
-            <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
-                onChange={handlePositionTitleChange}
-                value={positionTitle} />
-
-            <label htmlFor="startDate">Start Date: </label>
-            <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
-                onChange={handleStartDateChange}
-                value={startDate} />
-
-            <label htmlFor="endDate">End Date: </label>
-            <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
-                onChange={handleEndDateChange}
-                value={endDate} />
-
-            <label htmlFor="description">Description: </label>
-            <textarea type="text" name="description" id="description" placeholder="Description"
-                onChange={handleDescriptionChange}
-                value={description}>
-            </textarea>
-            <button type="submit">Add Experience</button>
-        </form>
+        <div className="add-experience-section">
+            <div>Experience: </div>
+            <form onSubmit={e => onSubmit(e)}>
+                <label htmlFor="companyName">Company Name: </label>
+                <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
+                    onChange={handleCompanyNameChange}
+                    value={companyName}
+                />
+                <label htmlFor="positionTitle">Position Title: </label>
+                <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
+                    onChange={handlePositionTitleChange}
+                    value={positionTitle} />
+                <label htmlFor="startDate">Start Date: </label>
+                <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
+                    onChange={handleStartDateChange}
+                    value={startDate} />
+                <label htmlFor="endDate">End Date: </label>
+                <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
+                    onChange={handleEndDateChange}
+                    value={endDate} />
+                <label htmlFor="description">Description: </label>
+                <textarea type="text" name="description" id="description" placeholder="Description"
+                    onChange={handleDescriptionChange}
+                    value={description}>
+                </textarea>
+                <button type="submit">Add Experience</button>
+            </form>
+        </div>
     )
 }

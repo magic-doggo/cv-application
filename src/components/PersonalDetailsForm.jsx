@@ -37,7 +37,7 @@ export default function PersonalDetailsForm({addPersonalDetailsEntry}) {
 
     return (
         <div className="add-personal-details-section">
-            <div>Personal Details</div>
+            <div>Personal Details: </div>
             <form onSubmit={e => e.preventDefault()}>
                 <label htmlFor="fullName">Full Name: </label>
                 <input type="text" id="fullName" name="fullName" placeholder="full name"
