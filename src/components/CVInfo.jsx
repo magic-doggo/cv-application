@@ -30,6 +30,7 @@ export function CVPage() {
 
     function selectEditingExperience(experience) {
         setEditExistingExperience(experience);
+
         // console.log(experience)
         // console.log(editExistingExperience)
     }
@@ -49,6 +50,7 @@ export function CVPage() {
                 <PracticalExperienceForm addExperienceEntry={addExperience} editExperience={editExistingExperience}
                     isCurrentlyEditing={editExistingExperience ? true : false} updateExperienceEntry={updateExperienceEntry}
                 ></PracticalExperienceForm>
+                {editExistingExperience ? (<TempForm entry={editExistingExperience}></TempForm>) : null}
                 {experienceEntries.map(experience =>
                 (<div key={experience.id}>
                     <button onClick={() => selectEditingExperience(experience)}>Edit {experience.companyName}</button>
@@ -104,5 +106,8 @@ export function CVPage() {
     )
 }
 
+function TempForm ({entry}) {
+    return <label htmlFor="CompanyName">CompanyName <input value={entry.companyName}/></label>
+}
 //make edit experience buttons interactive. when  clicked, empty form should be replaced with existing info from entry being edited
 //will need to move delete buttons to be part of the form too, not of the cv paper
