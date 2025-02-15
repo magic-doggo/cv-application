@@ -2,9 +2,9 @@ import { useState } from "react";
 
 //maybe add additional true/false parameter? If true, submits new entry
 //if false, edits existing entry?
-export function PracticalExperienceForm({ addExperienceEntry, editExperience, isCurrentlyEditing, updateExperienceEntry }) {
-    const [companyName, setCompanyName] = useState(editExperience ? editExperience.companyName : '');
-    const [positionTitle, setPositionTitle] = useState(editExperience ? editExperience.positionTitle : '');
+export function PracticalExperienceForm({ addExperienceEntry, editExperience, isCurrentlyEditing, updateExperienceEntry}) {
+    const [companyName, setCompanyName] = useState('');
+    const [positionTitle, setPositionTitle] = useState('');
     const [startDate, setStartDate] = useState(editExperience ? editExperience.startDate : '');
     const [endDate, setEndDate] = useState(editExperience ? editExperience.endDate : '');
     const [description, setDescription] = useState(editExperience ? editExperience.description : '');
@@ -45,18 +45,18 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
 
     function onSubmit(e) {
         e.preventDefault();
-        if (isCurrentlyEditing) {
-            updateExperienceEntry({
-                ...editExperience,
-                companyName,
-                positionTitle,
-                startDate,
-                endDate,
-                description
-            })
-            { console.log(editExperience, " asd ", editExperience.companyName) }
-        }
-        else addExperienceEntry({
+        // if (isCurrentlyEditing) {
+        //     updateExperienceEntry({
+        //         ...editExperience,
+        //         companyName,
+        //         positionTitle,
+        //         startDate,
+        //         endDate,
+        //         description
+        //     })
+        //     { console.log(editExperience, " asd ", editExperience.companyName) }
+        // }
+        addExperienceEntry({
             companyName,
             positionTitle,
             startDate,
@@ -64,11 +64,11 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
             description
         });
         clearForm();
-        setEditedCompanyName(false);
-        setEditedPositionTitle(false);
-        setEditedStartDate(false);
-        setEditedEndDate(false);
-        setEditedDescription(false);
+        // setEditedCompanyName(false);
+        // setEditedPositionTitle(false);
+        // setEditedStartDate(false);
+        // setEditedEndDate(false);
+        // setEditedDescription(false);
     }
 
     return (
@@ -76,13 +76,13 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
             <label htmlFor="companyName">Company Name: </label>
             <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
             onChange={handleCompanyNameChange}
-            value={editExperience ? ((companyName == '' && editedCompanyName == false) ? (editExperience.companyName) : companyName) : companyName} 
+            value={companyName} 
             />
 
             <label htmlFor="positionTitle">Position Title: </label>
             <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
             onChange={handlePositionTitleChange}
-            value={editExperience ? ((positionTitle == ''  && editedPositionTitle == false) ? editExperience.positionTitle : positionTitle) : positionTitle}  />
+            value={positionTitle}  />
 
             <label htmlFor="startDate">Start Date: </label>
             <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
