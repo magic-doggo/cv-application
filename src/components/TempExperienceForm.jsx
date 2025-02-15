@@ -68,7 +68,7 @@ export default function TempExperienceForm({ entry, updateExperienceEntry }) {
                 onChange={handleEditedDescriptionChange}
                 value={editedDescription}
             />
-            <button type="submit">Submit changes</button>
+            <button type="submit">Submit experience changes</button>
         </form>
     )
 }

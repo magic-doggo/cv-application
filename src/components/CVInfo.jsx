@@ -3,8 +3,8 @@ import { PracticalExperienceForm } from "./PracticalExperienceForm";
 import { EducationForm } from "./EducationForm";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import TempExperienceForm from "./TempExperienceForm"
+import TempEducationForm from "./TempEducationForm";
 
-//make new component for listing existing experiences, and add delete button next to it. maybe it will make the edit logic easier to figure out
 export function CVPage() {
     const [experienceEntries, setExperienceEntries] = useState([]);
     const [educationEntries, setEducationEntries] = useState([]);
@@ -12,6 +12,7 @@ export function CVPage() {
     const [nextId, setNextId] = useState(0);
 
     const [editExistingExperience, setEditExistingExperience] = useState(null);
+    const [editExistingEducation, setEditExistingEducation] = useState(null);
 
 
     function addExperience(entry) {
@@ -30,17 +31,23 @@ export function CVPage() {
 
     function selectEditingExperience(experience) {
         setEditExistingExperience(experience);
-
-        // console.log(experience)
-        // console.log(editExistingExperience)
+    }
+    function selectEditingEducation(education) {
+        setEditExistingEducation(education);
     }
 
     function updateExperienceEntry(updatedEntry) {
         setExperienceEntries(experienceEntries.map(entry => (
             entry.id == updatedEntry.id ? updatedEntry : entry
         )))
-        console.log(experienceEntries);
         setEditExistingExperience(null);
+    }
+
+    function updateEducationEntry(updatedEntry) {
+        setEducationEntries(educationEntries.map(entry => (
+            entry.id == updatedEntry.id ? updatedEntry : entry
+        )))
+        setEditExistingEducation(null);
     }
 
     //
@@ -48,6 +55,7 @@ export function CVPage() {
         <div>
             <div className="forms-container">
                 <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
+                
                 <PracticalExperienceForm addExperienceEntry={addExperience}></PracticalExperienceForm>
                 {editExistingExperience ? (<TempExperienceForm entry={editExistingExperience} updateExperienceEntry={updateExperienceEntry}></TempExperienceForm>) : null}
                 {!editExistingExperience ? (experienceEntries.map(experience =>
@@ -62,7 +70,22 @@ export function CVPage() {
                     }}>Delete {experience.companyName}</button>
                 </div>)
                 )) : null}
+
                 <EducationForm addEducationEntry={addEducation}></EducationForm>
+                {editExistingEducation ? (<TempEducationForm entry={editExistingEducation} updateEducationEntry={updateEducationEntry}></TempEducationForm>) : null}
+                {!editExistingEducation ? (educationEntries.map(education => 
+                    (<div key={education.id}>
+                        <button onClick={() => selectEditingEducation(education)}>Edit {education.school}</button>
+                        <button onClick={() => {
+                            setEducationEntries(
+                                educationEntries.filter(edu =>
+                                    edu.id !== education.id
+                                )
+                            )
+                        }}>Delete {education.school}</button>
+                    </div>)
+                )) : null}
+
             </div>
 
             <div className="cv-paper">
@@ -90,13 +113,6 @@ export function CVPage() {
                             <div>School: {education.school}</div>
                             <div>Degree: {education.degree}</div>
                             <div>Study period: {education.startDate} - {education.endDate}</div>
-                            <button onClick={() => {
-                                setEducationEntries(
-                                    educationEntries.filter(edu =>
-                                        edu.id !== education.id
-                                    )
-                                )
-                            }}>Delete {education.school}</button>
                         </li>
                     ))}
                 </ul>
@@ -104,7 +120,3 @@ export function CVPage() {
         </div>
     )
 }
-
-
-//make edit experience buttons interactive. when  clicked, empty form should be replaced with existing info from entry being edited
-//will need to move delete buttons to be part of the form too, not of the cv paper
