@@ -2,37 +2,37 @@ import { useState } from "react";
 
 //maybe add additional true/false parameter? If true, submits new entry
 //if false, edits existing entry?
-export function PracticalExperienceForm({ addExperienceEntry, editExperience, isCurrentlyEditing, updateExperienceEntry}) {
+export function PracticalExperienceForm({ addExperienceEntry}) {
     const [companyName, setCompanyName] = useState('');
     const [positionTitle, setPositionTitle] = useState('');
-    const [startDate, setStartDate] = useState(editExperience ? editExperience.startDate : '');
-    const [endDate, setEndDate] = useState(editExperience ? editExperience.endDate : '');
-    const [description, setDescription] = useState(editExperience ? editExperience.description : '');
-    const [editedCompanyName, setEditedCompanyName] = useState(false);
-    const [editedPositionTitle, setEditedPositionTitle] = useState(false);
-    const [editedStartDate, setEditedStartDate] = useState(false);
-    const [editedEndDate, setEditedEndDate] = useState(false);
-    const [editedDescription, setEditedDescription] = useState(false);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const [description, setDescription] = useState('');
+    // const [editedCompanyName, setEditedCompanyName] = useState(false);
+    // const [editedPositionTitle, setEditedPositionTitle] = useState(false);
+    // const [editedStartDate, setEditedStartDate] = useState(false);
+    // const [editedEndDate, setEditedEndDate] = useState(false);
+    // const [editedDescription, setEditedDescription] = useState(false);
 
     function handleCompanyNameChange(e) {
         setCompanyName(e.target.value);
-        setEditedCompanyName(true);
+        // setEditedCompanyName(true);
     }
     function handlePositionTitleChange(e) {
         setPositionTitle(e.target.value);
-        setEditedPositionTitle(true);
+        // setEditedPositionTitle(true);
     }
     function handleStartDateChange(e) {
         setStartDate(e.target.value);
-        setEditedStartDate(true);
+        // setEditedStartDate(true);
     }
     function handleEndDateChange(e) {
         setEndDate(e.target.value);
-        setEditedEndDate(true);
+        // setEditedEndDate(true);
     }
     function handleDescriptionChange(e) {
         setDescription(e.target.value);
-        setEditedDescription(true);
+        // setEditedDescription(true);
     }
 
     function clearForm() {
@@ -87,19 +87,19 @@ export function PracticalExperienceForm({ addExperienceEntry, editExperience, is
             <label htmlFor="startDate">Start Date: </label>
             <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
             onChange={handleStartDateChange} 
-            value={editExperience ? ((startDate == '' && editedStartDate == false) ? editExperience.startDate : startDate) : startDate} />
+            value={startDate} />
 
             <label htmlFor="endDate">End Date: </label>
             <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
             onChange={handleEndDateChange}
-            value={editExperience ? ((endDate == '' && editedEndDate == false ) ? editExperience.endDate : endDate) : endDate} />
+            value={endDate} />
 
             <label htmlFor="description">Description: </label>
             <textarea type="text" name="description" id="description" placeholder="Description"
             onChange={handleDescriptionChange}
-            value={editExperience ? ((description == '' && editedDescription == false) ? editExperience.description : description) : description}>
+            value={description}>
             </textarea>
-            <button type="submit">{isCurrentlyEditing ? 'Submit changes' : 'Add Experience'}</button>
+            <button type="submit">Add Experience</button>
         </form>
     )
 }

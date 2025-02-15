@@ -48,11 +48,9 @@ export function CVPage() {
         <div>
             <div className="forms-container">
                 <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
-                <PracticalExperienceForm addExperienceEntry={addExperience} editExperience={editExistingExperience}
-                    isCurrentlyEditing={editExistingExperience ? true : false} updateExperienceEntry={updateExperienceEntry}
-                ></PracticalExperienceForm>
+                <PracticalExperienceForm addExperienceEntry={addExperience}></PracticalExperienceForm>
                 {editExistingExperience ? (<TempForm entry={editExistingExperience} updateExperienceEntry={updateExperienceEntry}></TempForm>) : null}
-                {experienceEntries.map(experience =>
+                {!editExistingExperience ? (experienceEntries.map(experience =>
                 (<div key={experience.id}>
                     <button onClick={() => selectEditingExperience(experience)}>Edit {experience.companyName}</button>
                     <button onClick={() => {
@@ -63,7 +61,7 @@ export function CVPage() {
                         )
                     }}>Delete {experience.companyName}</button>
                 </div>)
-                )}
+                )) : null}
                 <EducationForm addEducationEntry={addEducation}></EducationForm>
             </div>
 
