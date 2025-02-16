@@ -55,41 +55,45 @@ export function CVPage() {
             <div className="forms-container">
                 <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
                 
-                <PracticalExperienceForm addExperienceEntry={addExperience}></PracticalExperienceForm>
-                {editExistingExperience ? (<TempExperienceForm entry={editExistingExperience} updateExperienceEntry={updateExperienceEntry}></TempExperienceForm>) : null}
-                {!editExistingExperience ? (experienceEntries.map(experience =>
-                (<div key={experience.id}>
-                    <button onClick={() => selectEditingExperience(experience)}>Edit {experience.companyName}</button>
-                    <button onClick={() => {
-                        setExperienceEntries(
-                            experienceEntries.filter(xp =>
-                                xp.id !== experience.id
-                            )
-                        )
-                    }}>Delete {experience.companyName}</button>
-                </div>)
-                )) : null}
-
-                <EducationForm addEducationEntry={addEducation}></EducationForm>
-                {editExistingEducation ? (<TempEducationForm entry={editExistingEducation} updateEducationEntry={updateEducationEntry}></TempEducationForm>) : null}
-                {!editExistingEducation ? (educationEntries.map(education => 
-                    (<div key={education.id}>
-                        <button onClick={() => selectEditingEducation(education)}>Edit {education.school}</button>
+                <div className="practical-experience-forms-container">
+                    {!editExistingExperience ? (<PracticalExperienceForm addExperienceEntry={addExperience}></PracticalExperienceForm>) : null}
+                    {editExistingExperience ? (<TempExperienceForm entry={editExistingExperience} updateExperienceEntry={updateExperienceEntry}></TempExperienceForm>) : null}
+                    {!editExistingExperience ? (experienceEntries.map(experience =>
+                    (<div key={experience.id}>
+                        <button onClick={() => selectEditingExperience(experience)}>Edit {experience.companyName}</button>
                         <button onClick={() => {
-                            setEducationEntries(
-                                educationEntries.filter(edu =>
-                                    edu.id !== education.id
+                            setExperienceEntries(
+                                experienceEntries.filter(xp =>
+                                    xp.id !== experience.id
                                 )
                             )
-                        }}>Delete {education.school}</button>
+                        }}>Delete {experience.companyName}</button>
                     </div>)
-                )) : null}
+                    )) : null}
+                </div>
+
+                <div className="education-forms-container">
+                    {!editExistingEducation ? <EducationForm addEducationEntry={addEducation}></EducationForm> : null}
+                    {editExistingEducation ? (<TempEducationForm entry={editExistingEducation} updateEducationEntry={updateEducationEntry}></TempEducationForm>) : null}
+                    {!editExistingEducation ? (educationEntries.map(education =>
+                        (<div key={education.id}>
+                            <button onClick={() => selectEditingEducation(education)}>Edit {education.school}</button>
+                            <button onClick={() => {
+                                setEducationEntries(
+                                    educationEntries.filter(edu =>
+                                        edu.id !== education.id
+                                    )
+                                )
+                            }}>Delete {education.school}</button>
+                        </div>)
+                    )) : null}
+                </div>
 
             </div>
 
             <div className="cv-paper">
-                <h1>CV</h1>
-                <div>
+                {/* <h1>CV</h1> */}
+                <div className="personal-details-header">
                     <ul>
                         <li>Full Name: {personalDetails.fullName}</li>
                         <li>Email address: {personalDetails.email}</li>

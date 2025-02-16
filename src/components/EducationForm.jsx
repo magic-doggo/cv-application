@@ -39,7 +39,7 @@ export function EducationForm({ addEducationEntry }) {
 
     return (
         <div className="add-education-section">
-            <div>Education: </div>
+            <h2 className="paragraph-title">Education: </h2>
             <form onSubmit={e => onSubmit(e)}>
                 <label htmlFor="school">School name: </label>
                 <input type="text" name="school" id="school" placeholder="Enter school / university"

@@ -10,9 +10,6 @@ import { CVPage } from './components/CVInfo'
 function App() {
   return (
     <>
-      {/* <PersonalDetails></PersonalDetails>
-      <Education></Education>
-      <PracticalExperience></PracticalExperience> */}
       <CVPage></CVPage>
     </>
   )

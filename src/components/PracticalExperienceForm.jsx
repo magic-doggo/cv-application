@@ -45,7 +45,7 @@ export function PracticalExperienceForm({ addExperienceEntry }) {
 
     return (
         <div className="add-experience-section">
-            <div>Experience: </div>
+            <h2 className="paragraph-title">Experience: </h2>
             <form onSubmit={e => onSubmit(e)}>
                 <label htmlFor="companyName">Company Name: </label>
                 <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"

@@ -2,7 +2,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  /* text-align: center; */
 }
 
 ul {
@@ -11,6 +11,12 @@ ul {
 
 label {
   display: block;
+  font-size: large;
+}
+
+input,
+textarea {
+  margin-bottom: 10px;
 }
 
 .cv-info {
@@ -24,7 +30,18 @@ label {
 .forms-container > div {
   border: 2px solid black;
   margin: 20px;
+  padding: 10px;
 }
+
+h2 {
+  margin: 12px 0 10px 0;
+}
+
+.add-experience-section,
+.add-education-section {
+  margin-bottom: 12px;
+}
+
 
 .cv-paper {
   border: 1px solid black;
@@ -32,4 +49,12 @@ label {
   width: 21cm;
 }
 
+
+
+
+
+/* 
+.personal-details-header {
+  background-color: darkblue;
+} */
 

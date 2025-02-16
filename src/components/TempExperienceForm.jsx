@@ -38,37 +38,36 @@ export default function TempExperienceForm({ entry, updateExperienceEntry }) {
     }
 
     return (
-        <form onSubmit={e => onSubmit(e)}>
-            <label htmlFor="companyName">Company Name: </label>
-            <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
-                onChange={handleEditedCompanyNameChange}
-                value={editedCompanyName}
-            />
-
-            <label htmlFor="positionTitle">Company Name: </label>
-            <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Company Name"
-                onChange={handleEditedPositionTitleChange}
-                value={editedPositionTitle}
-            />
-
-            <label htmlFor="startDate">Company Name: </label>
-            <input type="text" name="startDate" id="startDate" placeholder="Enter Company Name"
-                onChange={handleEditedStartDateChange}
-                value={editedStartDate}
-            />
-
-            <label htmlFor="endDate">Company Name: </label>
-            <input type="text" name="endDate" id="endDate" placeholder="Enter Company Name"
-                onChange={handleEditedEndDateChange}
-                value={editedEndDate}
-            />
-
-            <label htmlFor="description">Company Name: </label>
-            <input type="text" name="description" id="description" placeholder="Enter Company Name"
-                onChange={handleEditedDescriptionChange}
-                value={editedDescription}
-            />
-            <button type="submit">Submit experience changes</button>
-        </form>
+        <div className="edit-experience-section">
+            <h2>Edit Existing Experience: </h2>
+            <form onSubmit={e => onSubmit(e)}>
+                <label htmlFor="companyName">Company Name: </label>
+                <input type="text" name="companyName" id="companyName" placeholder="Enter Company Name"
+                    onChange={handleEditedCompanyNameChange}
+                    value={editedCompanyName}
+                />
+                <label htmlFor="positionTitle">Position Title: </label>
+                <input type="text" name="positionTitle" id="positionTitle" placeholder="Enter Position Title"
+                    onChange={handleEditedPositionTitleChange}
+                    value={editedPositionTitle}
+                />
+                <label htmlFor="startDate">Start Date: </label>
+                <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
+                    onChange={handleEditedStartDateChange}
+                    value={editedStartDate}
+                />
+                <label htmlFor="endDate">End Date: </label>
+                <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
+                    onChange={handleEditedEndDateChange}
+                    value={editedEndDate}
+                />
+                <label htmlFor="description">Description: </label>
+                <textarea type="text" name="description" id="description" placeholder="Description"
+                        onChange={handleEditedDescriptionChange}
+                        value={editedDescription}>
+                    </textarea>
+                <button type="submit">Submit Experience Changes</button>
+            </form>
+        </div>
     )
 }

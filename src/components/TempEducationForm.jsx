@@ -31,23 +31,23 @@ export default function TempEducationForm({ entry, updateEducationEntry }) {
     }
 
     return (
-        <form onSubmit={e => onSubmit(e)}>
-            <label htmlFor="school">School name: </label>
-            <input type="text" name="school" id="school" placeholder="Enter school / university"
-                value={editedSchool} onChange={handleEditedSchoolChange} />
-
-            <label htmlFor="degree">Degree: </label>
-            <input type="text" name="degree" id="degree" placeholder="Enter degree / field of study"
-                value={editedDegree} onChange={handleEditedDegreeChange} />
-
-            <label htmlFor="startDate">Start Date: </label>
-            <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
-                value={editedStartDate} onChange={handleEditedStartDateChange} />
-
-            <label htmlFor="endDate">End Date: </label>
-            <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
-                value={editedEndDate} onChange={handleEditedEndDateChange} />
-            <button type="submit">Submit education changes</button>
-        </form>
+        <div className="edit-education-section">
+            <h2>Edit Existing Education: </h2>
+            <form onSubmit={e => onSubmit(e)}>
+                <label htmlFor="school">School name: </label>
+                <input type="text" name="school" id="school" placeholder="Enter school / university"
+                    value={editedSchool} onChange={handleEditedSchoolChange} />
+                <label htmlFor="degree">Degree: </label>
+                <input type="text" name="degree" id="degree" placeholder="Enter degree / field of study"
+                    value={editedDegree} onChange={handleEditedDegreeChange} />
+                <label htmlFor="startDate">Start Date: </label>
+                <input type="text" name="startDate" id="startDate" placeholder="Enter Start Date"
+                    value={editedStartDate} onChange={handleEditedStartDateChange} />
+                <label htmlFor="endDate">End Date: </label>
+                <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
+                    value={editedEndDate} onChange={handleEditedEndDateChange} />
+                <button type="submit">Submit education changes</button>
+            </form>
+        </div>
     )
 }
