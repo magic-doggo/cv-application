@@ -4,6 +4,8 @@ import { EducationForm } from "./EducationForm";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import TempExperienceForm from "./TempExperienceForm"
 import TempEducationForm from "./TempEducationForm";
+import emailLogo from '../assets/email-outline.svg';
+import phoneLogo from '../assets/phone-outline.svg';
 
 export function CVPage() {
     const [experienceEntries, setExperienceEntries] = useState([]);
@@ -94,11 +96,13 @@ export function CVPage() {
             <div className="cv-paper">
                 {/* <h1>CV</h1> */}
                 <div className="personal-details-header">
-                    <ul>
-                        <li>Full Name: {personalDetails.fullName}</li>
-                        <li>Email address: {personalDetails.email}</li>
-                        <li>Phone Number: {personalDetails.phoneNumber}</li>
-                    </ul>
+                        <h1>{personalDetails.fullName}</h1>
+                        <div className="contact-details">
+                            <img src={emailLogo} alt="email logo"/>
+                            <div>{personalDetails.email}</div>
+                            <img src={phoneLogo} alt="phone logo" />
+                            <div>{personalDetails.phoneNumber}</div>
+                        </div>
                 </div>
                 <ul>
                     {experienceEntries.map(experience => (

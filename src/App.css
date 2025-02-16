@@ -53,8 +53,22 @@ h2 {
 
 
 
-/* 
-.personal-details-header {
-  background-color: darkblue;
-} */
 
+.personal-details-header {
+  color: white;
+  background-color: rgb(0, 0, 56);
+  margin: 0;
+}
+
+.contact-details {
+  display: flex;
+}
+
+h1 {
+  margin: 0;
+}
+
+img {
+  filter: invert(100%);
+  width: 24px;
+}

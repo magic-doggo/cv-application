@@ -69,6 +69,7 @@ export function PracticalExperienceForm({ addExperienceEntry }) {
                     onChange={handleDescriptionChange}
                     value={description}>
                 </textarea>
+                <br />
                 <button type="submit">Add Experience</button>
             </form>
         </div>

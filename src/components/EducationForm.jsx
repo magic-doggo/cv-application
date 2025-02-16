@@ -53,6 +53,7 @@ export function EducationForm({ addEducationEntry }) {
                 <label htmlFor="endDate">End Date: </label>
                 <input type="text" name="endDate" id="endDate" placeholder="Enter End Date"
                     value={endDate} onChange={handleEndDateChange} />
+                <br />
                 <button type="submit">Add Education</button>
             </form>
         </div>
