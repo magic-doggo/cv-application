@@ -98,10 +98,14 @@ export function CVPage() {
                 <div className="personal-details-header">
                         <h1>{personalDetails.fullName}</h1>
                         <div className="contact-details">
-                            <img src={emailLogo} alt="email logo"/>
-                            <div>{personalDetails.email}</div>
-                            <img src={phoneLogo} alt="phone logo" />
-                            <div>{personalDetails.phoneNumber}</div>
+                            <div className="email">
+                                {personalDetails.email ? (<img src={emailLogo} alt="email logo"/>) : null}
+                                <span>{personalDetails.email}</span>
+                            </div>
+                            <div className="phoneNumber">
+                                {personalDetails.phoneNumber ? (<img src={phoneLogo} alt="phone logo"/>) : null}
+                                <span>{personalDetails.phoneNumber}</span>
+                            </div>
                         </div>
                 </div>
                 <ul>
