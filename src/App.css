@@ -70,7 +70,8 @@ h2 {
   font-size: larger;
 }
 
-h1 {
+h1,
+h3 {
   margin: 0;
   text-align: center;
 }
@@ -80,4 +81,24 @@ img {
   width: 24px;
   transform: translateY(20%); /* aligns image with the rest of the text, despite image having built-in padding */
   margin-right: 4px;
+}
+
+.experience-cv-section {
+  margin: 12px;
+}
+
+.entry {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr 4fr;
+  margin-bottom: 10px;
+  /* max-width: 40%; */
+}
+
+.description {
+  /* margin: 0; */
+  /* word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%; */
 }

@@ -108,16 +108,21 @@ export function CVPage() {
                             </div>
                         </div>
                 </div>
-                <ul>
-                    {experienceEntries.map(experience => (
-                        <li key={experience.id}>
-                            <div>Company Name: {experience.companyName}</div>
-                            <div>Position Title: {experience.positionTitle}</div>
-                            <div>Work period: {experience.startDate} - {experience.endDate}</div>
-                            <div>Description: {experience.description}</div>
-                        </li>
-                    ))}
-                </ul>
+                <div className="experience-cv-section">
+                    <h3>Professional Experience</h3>
+                    <ul>
+                        {experienceEntries.map(experience => (
+                            <li key={experience.id} className="entry">
+                                <div>{experience.startDate} - {experience.endDate}</div>
+                                <div className="entry-details">
+                                    <div>{experience.companyName}</div>
+                                    <div>{experience.positionTitle}</div>
+                                    <div className="description">{experience.description}</div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
                 <ul>
                     {educationEntries.map(education => (
                         <li key={education.id}>
