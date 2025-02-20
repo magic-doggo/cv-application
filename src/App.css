@@ -7,6 +7,8 @@
 
 ul {
   list-style-type: none; 
+  margin: 6px;
+  padding: 0;
 }
 
 label {
@@ -76,6 +78,11 @@ h3 {
   text-align: center;
 }
 
+h3 {
+  background-color: rgb(228, 225, 225);
+  padding: 4px;
+}
+
 img {
   filter: invert(100%);
   width: 24px;
@@ -83,8 +90,9 @@ img {
   margin-right: 4px;
 }
 
-.experience-cv-section {
-  margin: 12px;
+.experience-cv-section,
+.education-cv-section {
+  margin: 24px 28px;
 }
 
 .entry {
@@ -101,4 +109,9 @@ img {
   overflow-wrap: break-word;
   white-space: normal;
   max-width: 100%; */
+}
+
+.company-name,
+.school-name {
+  font-weight: bold;
 }
