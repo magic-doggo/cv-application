@@ -6,8 +6,10 @@ import TempExperienceForm from "./TempExperienceForm"
 import TempEducationForm from "./TempEducationForm";
 import emailLogo from '../assets/email-outline.svg';
 import phoneLogo from '../assets/phone-outline.svg';
+import { usePDF } from 'react-to-pdf';
 
 export function CVPage() {
+    const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
     const [experienceEntries, setExperienceEntries] = useState([]);
     const [educationEntries, setEducationEntries] = useState([]);
     const [personalDetails, setPersonalDetails] = useState([]);
@@ -55,6 +57,7 @@ export function CVPage() {
     return (
         <div className="cv-info">
             <div className="forms-container">
+                <button className="download-pdf" onClick={() => toPDF({filename: 'page.pdf'})}>Download CV as PDF</button>
                 <PersonalDetailsForm addPersonalDetailsEntry={addPersonalDetails}></PersonalDetailsForm>
                 
                 <div className="practical-experience-forms-container">
@@ -93,7 +96,7 @@ export function CVPage() {
 
             </div>
 
-            <div className="cv-paper">
+            <div ref={targetRef} className="cv-paper">
                 {/* <h1>CV</h1> */}
                 <div className="personal-details-header">
                         <h1>{personalDetails.fullName}</h1>

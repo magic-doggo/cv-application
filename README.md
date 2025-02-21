@@ -1,9 +1,8 @@
-# React + Vite
+Basic CV application created in React. Accepts personal details, professional experience and education.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To make this app practical for job applications, I will need to add at least:
+- an extra input under "Personal Details" for a website/github link
+- a Summary Component where applicant can describe himself in a few rows
+- extra description fields for work experience
+- a key skills / certificates component
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# cv-application

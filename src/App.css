@@ -27,11 +27,11 @@ textarea {
 }
 
 .forms-container {
-  border: 1px solid black;
+  border: 1px solid rgb(39, 39, 77);
 }
 
 .forms-container > div {
-  border: 2px solid black;
+  border: 2px solid rgb(39, 39, 77);
   margin: 20px;
   padding: 10px;
 }
@@ -100,18 +100,15 @@ img {
   grid-gap: 30px;
   grid-template-columns: 1fr 4fr;
   margin-bottom: 10px;
-  /* max-width: 40%; */
-}
-
-.description {
-  /* margin: 0; */
-  /* word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  max-width: 100%; */
 }
 
 .company-name,
 .school-name {
   font-weight: bold;
+}
+
+.download-pdf {
+  margin: 20px 20px 0 20px;
+  border: 2px solid rgb(39, 39, 77);
+  border-radius: 5px;
 }
